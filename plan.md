@@ -1,5 +1,6 @@
 # Plan checklist
-
+* [x] Add springboot dependencies
+* [ ] Connect Database with Backend
 * [ ] Backend Models
     * [ ] Player and HighScores
 * [ ] Backend Data Layer with JDBCTemplateRepositories

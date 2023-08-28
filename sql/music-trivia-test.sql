@@ -1,6 +1,6 @@
-drop database if exists music_trivia;
-create database music_trivia;
-use music_trivia;
+drop database if exists music_trivia_test;
+create database music_trivia_test;
+use music_trivia_test;
 
 create table player (
 	player_id int primary key auto_increment,
@@ -22,8 +22,10 @@ create table high_scores (
 delimiter //
 create procedure set_known_good_state()
 begin
-	truncate table high_scores;
-    truncate table players;
+	delete from high_scores;
+    alter table high_scores auto_increment = 1;
+	delete from player;
+    alter table player auto_increment = 1;
     
     insert into player(gamer_tag)
 	values ('FILO');

@@ -1,8 +1,8 @@
 # Plan checklist
 * [x] Add springboot dependencies
 * [x] Connect Database with Backend
-* [ ] Backend Models
-    * [ ] Player and HighScores
+* [x] Backend Models
+    * [x] Player and HighScores
 * [ ] Backend Data Layer with JDBCTemplateRepositories
     * [ ] Player Classes
         * [ ] Player class with crud (1 hour)

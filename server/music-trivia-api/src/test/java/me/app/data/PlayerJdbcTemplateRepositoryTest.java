@@ -43,4 +43,18 @@ class PlayerJdbcTemplateRepositoryTest {
         Player actual = repository.add(player);
         assertNotNull(actual);
     }
+
+    @Test
+    void shouldUpdatePlayer(){
+        Player playerToUpdate = new Player();
+        playerToUpdate.setGamerTag("updated");
+        playerToUpdate.setTagLine("updated tagline");
+        playerToUpdate.setPlayerId(1);
+        assertTrue(repository.update(playerToUpdate));
+    }
+
+    @Test
+    void shouldDelete(){
+        assertTrue(repository.deleteById(1));
+    }
 }

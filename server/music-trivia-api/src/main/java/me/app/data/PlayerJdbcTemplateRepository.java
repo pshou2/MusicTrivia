@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.PreparedStatement;
 import java.sql.Statement;
@@ -62,11 +63,15 @@ public class PlayerJdbcTemplateRepository implements PlayerRepository {
 
         return jdbcTemplate.update(sql,
                 player.getGamerTag(),
-                player.getTagLine()) > 0;
+                player.getTagLine(),
+                player.getPlayerId()) > 0;
     }
 
     @Override
+    @Transactional
     public boolean deleteById(int id){
-        return false;
+        //to delete this player, you also have to delete the high scores
+        jdbcTemplate.update("delete from high_scores where player_id = ?;", id);
+        return jdbcTemplate.update("delete from player where player_id = ?;", id) > 0;
     }
 }

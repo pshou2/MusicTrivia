@@ -14,18 +14,20 @@ import java.sql.Time;
 import java.util.List;
 
 @Repository
-public class HighScoreJdbcTemplateRepository {
+public class HighScoreJdbcTemplateRepository implements HighScoreRepository {
     private final JdbcTemplate jdbcTemplate;
 
     public HighScoreJdbcTemplateRepository(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public List<HighScore> findAll(){
         final String sql = "select high_scores_id, score, date, time, player_id from high_scores;";
         return jdbcTemplate.query(sql, new HighScoreMapper());
     }
 
+    @Override
     public HighScore findById(int id){
         final String sql = "select high_scores_id, score, date, time, player_id from high_scores"
         + " where high_scores_id = ?;";
@@ -33,6 +35,7 @@ public class HighScoreJdbcTemplateRepository {
         return jdbcTemplate.queryForObject(sql, new HighScoreMapper(), id);
     }
 
+    @Override
     public HighScore add(HighScore highScore){
         final String sql = "insert into high_scores (score, date, time, player_id) "
                 + "values (?,?,?,?);";
@@ -53,6 +56,7 @@ public class HighScoreJdbcTemplateRepository {
         return highScore;
     }
 
+    @Override
     public boolean update(HighScore highScore){
         final String sql = "update high_scores set "
                 + "score = ?, "
@@ -69,6 +73,7 @@ public class HighScoreJdbcTemplateRepository {
                 highScore.getHighScoresId()) > 0;
     }
 
+    @Override
     public boolean deleteById(int id){
         return jdbcTemplate.update("delete from high_scores where high_scores_id = ?;", id) > 0;
     }

@@ -50,4 +50,22 @@ class HighScoreJdbcTemplateRepositoryTest {
         HighScore actual = repository.add((highScore));
         assertNotNull(actual);
     }
+
+    @Test
+    void shouldUpdate(){
+        //test is failing when all tests run because delete test runs faster than update
+        HighScore highScoreToUpdate = repository.findById(1);
+        highScoreToUpdate.setScore(25);
+        assertTrue(repository.update(highScoreToUpdate));
+    }
+
+    @Test
+    void shouldDelete(){
+        assertTrue(repository.deleteById(1));
+    }
+
+    @Test
+    void shouldNotDeleteNonExistingId(){
+        assertFalse(repository.deleteById(999999999));
+    }
 }

@@ -52,4 +52,24 @@ public class HighScoreJdbcTemplateRepository {
         highScore.setHighScoresId(keyHolder.getKey().intValue());
         return highScore;
     }
+
+    public boolean update(HighScore highScore){
+        final String sql = "update high_scores set "
+                + "score = ?, "
+                + "date = ?, "
+                + "time = ?, "
+                + "player_id = ? "
+                + "where high_scores_id = ?;";
+
+        return jdbcTemplate.update(sql,
+                highScore.getScore(),
+                highScore.getDate(),
+                highScore.getTime(),
+                highScore.getPlayerId(),
+                highScore.getHighScoresId()) > 0;
+    }
+
+    public boolean deleteById(int id){
+        return jdbcTemplate.update("delete from high_scores where high_scores_id = ?;", id) > 0;
+    }
 }

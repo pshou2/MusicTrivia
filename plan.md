@@ -3,13 +3,13 @@
 * [x] Connect Database with Backend
 * [x] Backend Models
     * [x] Player and HighScores
-* [ ] Backend Data Layer with JDBCTemplateRepositories
+* [x] Backend Data Layer with JDBCTemplateRepositories
     * [x] Player Classes
         * [x] Player class with crud (1 hour)
         * [x] Player class test (1 hour)
-    * [ ] HighScores Classes
-        * [ ] HighScores class with crud (1 hour)
-        * [ ] HighScores class test (1 hour)
+    * [x] HighScores Classes
+        * [x] HighScores class with crud (1 hour)
+        * [x] HighScores class test (1 hour)
 * [ ] Backend Domain Layer
     * [ ] Response, Result, and ResultType Classes (0.5 hour)
     * [ ] Player Service Classe

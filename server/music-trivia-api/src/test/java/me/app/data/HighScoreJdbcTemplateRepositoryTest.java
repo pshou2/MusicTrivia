@@ -7,6 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -35,5 +37,17 @@ class HighScoreJdbcTemplateRepositoryTest {
         System.out.println(highScore.getScore());
         assertNotNull(repository.findById(1));
     }
-    
+
+    @Test
+    void shouldAdd(){
+        HighScore highScore = new HighScore();
+        highScore.setScore(6);
+        LocalDate date = LocalDate.of(2023, 9, 7);
+        highScore.setDate(date);
+        LocalTime time = LocalTime.of(2, 15, 32);
+        highScore.setTime(time);
+        highScore.setPlayerId(1);
+        HighScore actual = repository.add((highScore));
+        assertNotNull(actual);
+    }
 }

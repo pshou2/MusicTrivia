@@ -51,7 +51,6 @@ public class PlayerJdbcTemplateRepository implements PlayerRepository {
 
         player.setPlayerId(keyHolder.getKey().intValue());
         return player;
-
     }
 
     @Override

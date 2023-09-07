@@ -5,7 +5,7 @@ import java.time.LocalTime;
 import java.util.Objects;
 
 
-public class HighScores {
+public class HighScore {
     //fields
     private int highScoresId;
     private int score;
@@ -14,7 +14,7 @@ public class HighScores {
     private int playerId;
 
     //constructors
-    public HighScores(int highScoresId, int score, LocalDate date, LocalTime time, int playerId) {
+    public HighScore(int highScoresId, int score, LocalDate date, LocalTime time, int playerId) {
         this.highScoresId = highScoresId;
         this.score = score;
         this.date = date;
@@ -22,7 +22,7 @@ public class HighScores {
         this.playerId = playerId;
     }
 
-    public HighScores() {
+    public HighScore() {
     }
 
     //getters and setters
@@ -70,7 +70,7 @@ public class HighScores {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        HighScores that = (HighScores) o;
+        HighScore that = (HighScore) o;
         return highScoresId == that.highScoresId && score == that.score && playerId == that.playerId && Objects.equals(date, that.date) && Objects.equals(time, that.time);
     }
 

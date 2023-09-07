@@ -4,9 +4,9 @@
 * [x] Backend Models
     * [x] Player and HighScores
 * [ ] Backend Data Layer with JDBCTemplateRepositories
-    * [ ] Player Classes
-        * [ ] Player class with crud (1 hour)
-        * [ ] Player class test (1 hour)
+    * [x] Player Classes
+        * [x] Player class with crud (1 hour)
+        * [x] Player class test (1 hour)
     * [ ] HighScores Classes
         * [ ] HighScores class with crud (1 hour)
         * [ ] HighScores class test (1 hour)

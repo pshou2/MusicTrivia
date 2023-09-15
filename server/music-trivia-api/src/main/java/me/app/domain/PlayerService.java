@@ -22,5 +22,35 @@ public class PlayerService {
         return repository.findById(id);
     }
 
-    
+    public Result<Player> add(Player player){
+        Result<Player> result = validate(player);
+        if (!result.isSuccess()){
+            return result;
+        }
+
+        player = repository.add(player);
+        result.setPayload(player);
+        return result;
+    }
+
+    private Result<Player> validate(Player player){
+        Result<Player> result = new Result<Player>();
+
+        if (player == null){
+            result.addMessage("Player cannot be null.", ResultType.INVALID);
+            return result;
+        }
+        if (player.getGamerTag() == null){
+            result.addMessage("Player gamer tage must not be null.", ResultType.INVALID);
+        }
+        if (player.getGamerTag().length() > 50){
+            result.addMessage("Player gamer tag must not be longer than 50 characters.", ResultType.INVALID);
+        }
+        if (player.getTagLine() != null && player.getTagLine().length() > 50){
+            result.addMessage("Player tag line must not be longer than 50 characters.", ResultType.INVALID);
+        }
+
+        return result;
+    }
+
 }

@@ -51,6 +51,16 @@ public class PlayerService {
         return result;
     }
 
+    public Result<Player> deleteById(int id){
+        Result<Player> result = new Result<Player>();
+        if(!repository.deleteById(id)){
+            String msg = String.format("player_id: %s was not found", id);
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
+
     private Result<Player> validate(Player player){
         Result<Player> result = new Result<Player>();
 

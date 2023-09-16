@@ -33,6 +33,20 @@ public class PlayerService {
         return result;
     }
 
+    public Result<Player> update(Player player){
+        Result<Player> result = validate(player);
+        if (!result.isSuccess()){
+            return result;
+        }
+
+        if (!repository.update(player)){
+            String msg = String.format("player_id: %s was not found", player.getPlayerId());
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
+
     private Result<Player> validate(Player player){
         Result<Player> result = new Result<Player>();
 

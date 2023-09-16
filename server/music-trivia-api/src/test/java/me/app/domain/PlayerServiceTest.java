@@ -50,5 +50,5 @@ class PlayerServiceTest {
         Result<Player> result = service.add(player);
         assertEquals(ResultType.INVALID, result.getType());
     }
-    
+
 }

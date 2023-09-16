@@ -33,4 +33,22 @@ class PlayerServiceTest {
         Result<Player> result = service.add(null);
         assertEquals(ResultType.INVALID, result.getType());
     }
+
+    @Test
+    void shouldNotAddNullGamerTag(){
+        Player player = new Player();
+        player.setTagLine("blah");
+        Result<Player> result = service.add(player);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
+
+    @Test
+    void shouldNotAddGamerTagLengthGreaterThan50(){
+        Player player = new Player();
+        player.setGamerTag("*".repeat(100));
+        player.setTagLine("hello");
+        Result<Player> result = service.add(player);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
+    
 }

@@ -42,6 +42,7 @@ public class PlayerService {
         }
         if (player.getGamerTag() == null){
             result.addMessage("Player gamer tage must not be null.", ResultType.INVALID);
+            return result;
         }
         if (player.getGamerTag().length() > 50){
             result.addMessage("Player gamer tag must not be longer than 50 characters.", ResultType.INVALID);

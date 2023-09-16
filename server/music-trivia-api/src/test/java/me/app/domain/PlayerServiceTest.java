@@ -8,6 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class PlayerServiceTest {
@@ -51,4 +52,39 @@ class PlayerServiceTest {
         assertEquals(ResultType.INVALID, result.getType());
     }
 
+    //Happy Update
+    @Test
+    void shouldUpdate(){
+        Player player = new Player();
+        player.setPlayerId(1);
+        player.setGamerTag("Whooda updated");
+        player.setTagLine("Wooooooooo");
+
+        when(repository.update(player)).thenReturn(true);
+        Result<Player> result = service.update(player);
+        assertEquals(ResultType.SUCCESS, result.getType());
+    }
+
+    //Unhappy Update
+    @Test
+    void shouldNotUpdateZeroId(){
+        Player player = new Player();
+        player.setGamerTag("Whooda updated");
+        player.setTagLine("Wooooooooo");
+
+        when(repository.update(player)).thenReturn(false);
+        Result<Player> result = service.update(player);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
+
+    @Test
+    void shouldNotUpdateNonExistingId(){
+        Player player = new Player();
+        player.setPlayerId(9999);
+        player.setGamerTag("Hello");
+
+        when(repository.update(player)).thenReturn(false);
+        Result<Player> result = service.update(player);
+        assertEquals(ResultType.NOT_FOUND, result.getType());
+    }
 }

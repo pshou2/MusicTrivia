@@ -38,6 +38,10 @@ public class PlayerService {
         if (!result.isSuccess()){
             return result;
         }
+        if (player.getPlayerId() <= 0){
+            result.addMessage("player_id must be set for 'update' operation.", ResultType.INVALID);
+            return result;
+        }
 
         if (!repository.update(player)){
             String msg = String.format("player_id: %s was not found", player.getPlayerId());

@@ -87,4 +87,18 @@ class PlayerServiceTest {
         Result<Player> result = service.update(player);
         assertEquals(ResultType.NOT_FOUND, result.getType());
     }
+
+    @Test
+    void shouldDelete(){
+        when(repository.deleteById(1)).thenReturn(true);
+        Result<Player> result = service.deleteById(1);
+        assertEquals(ResultType.SUCCESS, result.getType());
+    }
+
+    @Test
+    void shouldNotDeleteNonExistingId(){
+        when(repository.deleteById(9999)).thenReturn(false);
+        Result<Player> result = service.deleteById(9999);
+        assertEquals(ResultType.NOT_FOUND, result.getType());
+    }
 }

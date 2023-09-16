@@ -12,9 +12,9 @@
         * [x] HighScores class test (1 hour)
 * [ ] Backend Domain Layer
     * [x] Result, and ResultType Classes (0.5 hour)
-    * [ ] Player Service Classe
-        * [ ] Player class with crud (1 hour)
-        * [ ] Player class with test (1 hour)
+    * [x] Player Service Classe
+        * [x] Player class with crud (1 hour)
+        * [x] Player class with test (1 hour)
     * [ ] HighScores Service Classe
         * [ ] HighScores class with crud (1 hour)
         * [ ] HighScores class with test (1 hour)

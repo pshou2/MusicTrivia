@@ -52,6 +52,15 @@ class PlayerServiceTest {
         assertEquals(ResultType.INVALID, result.getType());
     }
 
+    @Test
+    void shouldNotAddTaglineLengthGreaterThan50(){
+        Player player = new Player();
+        player.setGamerTag("Hello there");
+        player.setTagLine("*".repeat(100));
+        Result<Player> result = service.add(player);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
+
     //Happy Update
     @Test
     void shouldUpdate(){

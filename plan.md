@@ -10,14 +10,14 @@
     * [x] HighScores Classes
         * [x] HighScores class with crud (1 hour)
         * [x] HighScores class test (1 hour)
-* [ ] Backend Domain Layer
+* [x] Backend Domain Layer
     * [x] Result, and ResultType Classes (0.5 hour)
     * [x] Player Service Classe
         * [x] Player class with crud (1 hour)
         * [x] Player class with test (1 hour)
-    * [ ] HighScores Service Classe
-        * [ ] HighScores class with crud (1 hour)
-        * [ ] HighScores class with test (1 hour)
+    * [x] HighScores Service Classe
+        * [x] HighScores class with crud (1 hour)
+        * [x] HighScores class with test (1 hour)
 * [ ] Backend API 
     * [ ] Error Response and Global Error Handling
     * [ ] Player Controller Classes

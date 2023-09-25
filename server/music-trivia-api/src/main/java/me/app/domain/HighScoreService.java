@@ -2,6 +2,7 @@ package me.app.domain;
 
 import me.app.data.HighScoreRepository;
 import me.app.models.HighScore;
+import me.app.models.Player;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -54,6 +55,16 @@ public class HighScoreService {
 
         if (!repository.update(highScore)){
             String msg = String.format("high_scores_id: %s was not found", highScore.getHighScoresId());
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
+
+    public Result<HighScore> deleteById(int id){
+        Result<HighScore> result = new Result<HighScore>();
+        if(!repository.deleteById(id)){
+            String msg = String.format("high_scores_id: %s was not found", id);
             result.addMessage(msg, ResultType.NOT_FOUND);
         }
 

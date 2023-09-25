@@ -11,6 +11,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.Mockito.when;
 
 @SpringBootTest
 class HighScoreServiceTest {
@@ -79,4 +80,47 @@ class HighScoreServiceTest {
         Result<HighScore> result = service.add(highScore);
         assertEquals(ResultType.INVALID, result.getType());
     }
+
+    @Test
+    void shouldUpdate(){
+        HighScore highScore = new HighScore();
+        highScore.setHighScoresId(1);
+        highScore.setScore(15);
+        highScore.setDate(LocalDate.now());
+        highScore.setTime(LocalTime.now());
+        highScore.setPlayerId(1);
+
+        when(repository.update(highScore)).thenReturn(true);
+        Result<HighScore> result = service.update(highScore);
+        assertEquals(ResultType.SUCCESS, result.getType());
+    }
+
+    @Test
+    void shouldNotUpdateNotSetHighscoresId() {
+        HighScore highScore = new HighScore();
+        highScore.setScore(15);
+        highScore.setDate(LocalDate.now());
+        highScore.setTime(LocalTime.now());
+        highScore.setPlayerId(1);
+
+        when(repository.update(highScore)).thenReturn(false);
+        Result<HighScore> result = service.update(highScore);
+        assertEquals(ResultType.INVALID, result.getType());
+    }
+
+    @Test
+    void shouldNotUpdateHighscoreNotFound(){
+        HighScore highScore = new HighScore();
+        highScore.setHighScoresId(9999);
+        highScore.setScore(15);
+        highScore.setDate(LocalDate.now());
+        highScore.setTime(LocalTime.now());
+        highScore.setPlayerId(1);
+
+        when(repository.update(highScore)).thenReturn(false);
+        Result<HighScore> result = service.update(highScore);
+        assertEquals(ResultType.NOT_FOUND, result.getType());
+    }
+
+
 }

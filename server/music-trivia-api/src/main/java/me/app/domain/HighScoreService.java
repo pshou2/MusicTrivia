@@ -5,6 +5,7 @@ import me.app.models.HighScore;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -58,10 +59,13 @@ public class HighScoreService {
         if (highScore.getScore() < 0){
             result.addMessage("Score must be above 0.", ResultType.INVALID);
         }
-        if (highScore.getDate().isAfter(LocalDate.now())){
+        if (highScore.getDate().isAfter(LocalDate.now())) {
             result.addMessage("Date must be in the past", ResultType.INVALID);
         }
-        if (highScore.getPlayerId() < 0){
+        if (highScore.getTime().isAfter(LocalTime.now())){
+            result.addMessage("Time must be in the past", ResultType.INVALID);
+        }
+        if (highScore.getPlayerId() <= 0){
             result.addMessage("Player id must be set", ResultType.INVALID);
         }
         return result;

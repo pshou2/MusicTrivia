@@ -41,6 +41,25 @@ public class HighScoreService {
         return result;
     }
 
+    public Result<HighScore> update(HighScore highScore){
+        Result<HighScore> result = validate(highScore);
+        if (!result.isSuccess()){
+            return result;
+        }
+
+        if (highScore.getHighScoresId() <= 0){
+            result.addMessage("high_scores_id must be set for 'update' operation.", ResultType.INVALID);
+            return result;
+        }
+
+        if (!repository.update(highScore)){
+            String msg = String.format("high_scores_id: %s was not found", highScore.getHighScoresId());
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
+
     private Result<HighScore> validate(HighScore highScore){
         Result<HighScore> result = new Result<HighScore>();
 
@@ -70,4 +89,6 @@ public class HighScoreService {
         }
         return result;
     }
+
+
 }

@@ -24,3 +24,6 @@ Content-Type: application/json
     "gamerTag": "FILO",
     "tagLine": "WAAAAAAA"
 }
+
+###
+DELETE {{base_url}}/api/player/2 HTTP/1.1

@@ -55,4 +55,13 @@ public class PlayerController {
         }
         return ErrorResponse.build(result);
     }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity<Object> deleteById(@PathVariable int id){
+        Result<Player> result = service.deleteById(id);
+        if(result.isSuccess()){
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return ErrorResponse.build(result);
+    }
 }

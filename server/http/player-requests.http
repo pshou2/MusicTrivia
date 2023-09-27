@@ -14,3 +14,13 @@ Content-Type: application/json
     "gamerTag":"new tag bro",
     "tagLine":"new me new life"
 }
+
+###
+PUT {{base_url}}/api/player/1
+Content-Type: application/json
+
+{
+    "playerId": 1,
+    "gamerTag": "FILO",
+    "tagLine": "WAAAAAAA"
+}

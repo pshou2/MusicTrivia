@@ -42,4 +42,17 @@ public class PlayerController {
 
         return ErrorResponse.build(result);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Object> update(@PathVariable int id, @RequestBody Player player){
+        if (id != player.getPlayerId()){
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+
+        Result<Player> result = service.update(player);
+        if(result.isSuccess()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return ErrorResponse.build(result);
+    }
 }

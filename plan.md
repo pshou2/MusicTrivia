@@ -19,10 +19,10 @@
         * [x] HighScores class with crud (1 hour)
         * [x] HighScores class with test (1 hour)
 * [ ] Backend API 
-    * [ ] Error Response and Global Error Handling
-    * [ ] Player Controller Classes
-        * [ ] Player controller with crud (1 hour)
-        * [ ] Manually test Player http requests (1 hour)
+    * [x] Error Response and Global Error Handling
+    * [x] Player Controller Classes
+        * [x] Player controller with crud (1 hour)
+        * [x] Manually test Player http requests (1 hour)
     * [ ] HighScores Controller Classes
         * [ ] HighScores controller with crud (1 hour)
         * [ ] Manually test HighScores http requests (1 hour)

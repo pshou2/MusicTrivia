@@ -1,6 +1,7 @@
 package me.app.controller;
 
 import me.app.domain.PlayerService;
+import me.app.domain.Result;
 import me.app.models.Player;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,5 +31,15 @@ public class PlayerController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(player, HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Object> add(@RequestBody Player player){
+        Result<Player> result = service.add(player);
+        if(result.isSuccess()){
+            return new ResponseEntity<>(result.getPayload(), HttpStatus.CREATED);
+        }
+
+        return ErrorResponse.build(result);
     }
 }

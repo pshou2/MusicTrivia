@@ -1,0 +1,7 @@
+@base_url = http://localhost:8080
+
+###
+GET {{base_url}}/api/player
+
+###
+GET {{base_url}}/api/player/1 HTTP/1.1

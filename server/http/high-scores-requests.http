@@ -29,3 +29,7 @@ Content-Type: application/json
     "time":"13:20:04",
     "playerId": 1
 }
+
+###
+DELETE {{base_url}}/api/high_scores/2 HTTP/1.1
+Content-Type: application/json

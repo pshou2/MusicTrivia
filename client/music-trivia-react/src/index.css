@@ -1,14 +1,48 @@
+* {
+  box-sizing: border-box;
+  padding:0;
+  margin:0;
+  max-width:100%;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-color: gray;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.container-fluid form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 2.5rem;
+  margin-top: 1rem;
+  width: 80%;
+  max-width: 30rem;
+  height: auto;
+  background-color: #fff;
+  border-radius: 0.7rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.container-fluid form label {
+  margin-top: 1.2rem;
+  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+  color: rgb(55, 65, 81);
+}
+
+.container-fluid form input {
+  width: 100%;
+  line-height: 3rem;
+  font-size: 1.5rem;
+  background-color: rgb(229, 231, 235);
+  border: none;
+  border-radius: 4px;
+  padding: 0 1rem;
+  margin-bottom: 1.2rem;
+}
+
+.container-fluid form textarea {
+  width: 100%;
 }

@@ -1,11 +1,14 @@
+import CreateGamer from "./CreateGamer";
+
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <p>
-          hello world
+          This component is app
         </p>
       </header>
+      <CreateGamer/>
     </div>
   );
 }

@@ -30,6 +30,9 @@ function CreateGamer(){
                         <label htmlFor="tagline" className="form-label">Tagline: </label>
                         <textarea id="tagline" name="tagline"></textarea>
                     </div>
+                    <div>
+                        <button type="submit" className="btn btn-primary">CREATE GAMER</button>
+                    </div>
                 </form>
             </div>
         </>

@@ -1,4 +1,5 @@
 import CreateGamer from "./CreateGamer";
+import Home from "./Home";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
         </p>
       </header>
       <CreateGamer/>
+      <Home/>
     </div>
   );
 }
